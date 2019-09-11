@@ -166,6 +166,14 @@ public class LexerTests {
 	}
 
 	@Test
+	public void testStringLiteral2() {
+		runtest("a\"",
+				new Token(ID, 0, 0, "a"),
+				(Token)null,
+				new Token(EOF, 0, 2, ""));
+	}
+
+	@Test
 	public void testIntegerLiteral() {
 		runtest("12 +3456 -789 00001",
 				new Token(INT_LITERAL, 0, 0, "12"),
