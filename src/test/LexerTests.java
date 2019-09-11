@@ -131,7 +131,8 @@ public class LexerTests {
 	@Test
 	public void testIDFail() {
 		runtest("1Identifier",
-				(Token)null,
+				new Token(INT_LITERAL, 0, 0, "1"),
+				new Token(ID, 0, 1, "Identifier"),
 				new Token(EOF, 0, 11, ""));
 	}
 

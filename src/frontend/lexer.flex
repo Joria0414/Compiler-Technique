@@ -93,7 +93,6 @@ StringLiteral = \"([^\"]*)\"
 
 /* identifier */
 {Identifier} { return token(Token.Type.ID); }
-{Digit}{Identifier} { throw new Error("identifier cannot start with digit '" + yytext() + "'"); }
 
 /* literals */
 {StringLiteral} { return token(Token.Type.STRING_LITERAL, trimQuotes(yytext())); }
