@@ -160,9 +160,17 @@ public class LexerTests {
 
 	@Test
 	public void testStringLiteral() {
-		runtest("\"\\n\"", 
+		runtest("\"\\n\"",
 				new Token(STRING_LITERAL, 0, 0, "\\n"),
 				new Token(EOF, 0, 4, ""));
+	}
+
+	@Test
+	public void testEndOfLineBetweenDoubleQuote() {
+		runtest("\"\n\"",
+				(Token)null,
+				(Token)null,
+				new Token(EOF, 1, 1, ""));
 	}
 
 	@Test

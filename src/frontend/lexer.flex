@@ -47,7 +47,7 @@ SpecialChar = "_"
 Character = {Letter} | {Digit} | {SpecialChar}
 Identifier = {Letter}{Character}*
 IntegerLiteral = {Digit}+
-StringLiteral = \"([^\"]*)\"
+StringLiteral = \"([^\"\n]*)\"
 
 %%
 /* put in your rules here.    */
@@ -96,7 +96,7 @@ StringLiteral = \"([^\"]*)\"
 
 /* literals */
 {StringLiteral} { return token(Token.Type.STRING_LITERAL, trimQuotes(yytext())); }
-{IntegerLiteral} { return token(Token.Type.INT_LITERAL, trimQuotes(yytext())); }
+{IntegerLiteral} { return token(Token.Type.INT_LITERAL); }
 
 {WhiteSpace} { /* ignore */ }
 
